@@ -7,5 +7,8 @@ namespace TwoDimensionalGeometry.Extensions;
 
 internal static class FloatExtensions
 {
-    internal static float MaxValueCheck(this float number) => number >= float.MaxValue ? 0 : number;
+    internal static float MaxValueCheck(this float number)
+    {
+        return number >= float.MaxValue ? 0 : number;
+    }
 }

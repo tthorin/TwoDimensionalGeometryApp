@@ -11,7 +11,10 @@ public class CircleTests
 {
     private readonly Circle _sut;
 
-    public CircleTests() => _sut = new Circle(1);
+    public CircleTests()
+    {
+        _sut = new Circle(1);
+    }
 
     [Fact]
     public void GetArea_ValidRadius_ShouldCalculateCorrectly()
@@ -25,7 +28,7 @@ public class CircleTests
 
     [Fact]
     public void GetArea_InvalidRadius_ShouldReturnNegativeOne()
-    {   
+    {
         _sut.Radius = -5;
         const float expected = -1;
 
@@ -33,6 +36,7 @@ public class CircleTests
 
         Assert.Equal(expected, actual, 2);
     }
+
     [Fact]
     public void GetArea_TooHighResult_ShouldReturnZero()
     {
@@ -64,6 +68,7 @@ public class CircleTests
 
         Assert.Equal(expected, actual, 2);
     }
+
     [Fact]
     public void GetPerimeter_TooHighResult_ShouldReturnZero()
     {
@@ -74,6 +79,7 @@ public class CircleTests
 
         Assert.Equal(expected, actual, 2);
     }
+
     [Fact]
     public void Diameter_SettingValue_ShouldSetRadiusToExpectedValue()
     {
@@ -84,6 +90,7 @@ public class CircleTests
 
         Assert.Equal(expected, actual, 2);
     }
+
     [Fact]
     public void Diameter_GettingValue_ShouldReturnExpectedValue()
     {

@@ -11,7 +11,10 @@ public class EquilateralTriangleTests
 {
     private readonly EquilateralTriangle _sut;
 
-    public EquilateralTriangleTests() => _sut = new EquilateralTriangle { Side = 1 };
+    public EquilateralTriangleTests()
+    {
+        _sut = new EquilateralTriangle {Side = 1};
+    }
 
     [Fact]
     public void GetArea_ValidValue_ShouldCalculateCorrectly()

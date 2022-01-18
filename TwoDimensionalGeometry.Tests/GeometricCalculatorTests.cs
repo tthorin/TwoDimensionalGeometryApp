@@ -2,6 +2,7 @@
 //  GeometricCalculatorTests.cs by Thomas Thorin, Copyright (C) 2022.
 //  Published under GNU General Public License v3 (GPL-3)
 // -----------------------------------------------------------------------------------------------
+
 #pragma warning disable CS8600
 #pragma warning disable CS8604
 
@@ -14,8 +15,8 @@ namespace TwoDimensionalGeometry.Tests;
 
 public class GeometricCalculatorTests
 {
-    private readonly Square _square;
     private readonly ITwoDimensionalShape[] _shapes;
+    private readonly Square _square;
 
     public GeometricCalculatorTests()
     {
@@ -23,21 +24,21 @@ public class GeometricCalculatorTests
         _shapes = new ITwoDimensionalShape[]
         {
             new Square {Side = 2}, //perimeter = 8,area 4
-            new Rectangle {Height = 1,Width = 2}, //perimeter = 6,area 2
-            new RightAngleTriangle {Height = 3,Width = 4} //perimeter = 12,area 6
+            new Rectangle {Height = 1, Width = 2}, //perimeter = 6,area 2
+            new RightAngleTriangle {Height = 3, Width = 4} //perimeter = 12,area 6
         };
     }
-    
+
     [Fact]
     public void GetArea_ValidShape_ShouldReturnAreaCorrectly()
     {
         const float expected = 4f;
 
         var actual = GeometricCalculator.GetArea(_square);
-        
-        Assert.Equal(expected,actual);
+
+        Assert.Equal(expected, actual);
     }
-    
+
     [Fact]
     public void GetArea_NullReference_ShouldReturnNegativeTwo()
     {
@@ -45,20 +46,20 @@ public class GeometricCalculatorTests
         const float expected = -2;
 
         var actual = GeometricCalculator.GetArea(nullSquare);
-        
-        Assert.Equal(expected,actual);
+
+        Assert.Equal(expected, actual);
     }
-    
+
     [Fact]
     public void GetPerimeter_ValidShape_ShouldReturnAreaCorrectly()
     {
         const float expected = 8f;
 
         var actual = GeometricCalculator.GetPerimeter(_square);
-        
-        Assert.Equal(expected,actual);
+
+        Assert.Equal(expected, actual);
     }
-    
+
     [Fact]
     public void GetPerimeter_NullReference_ShouldReturnNegativeTwo()
     {
@@ -66,42 +67,42 @@ public class GeometricCalculatorTests
         const float expected = -2;
 
         var actual = GeometricCalculator.GetPerimeter(nullSquare);
-        
-        Assert.Equal(expected,actual);
+
+        Assert.Equal(expected, actual);
     }
-    
+
     [Fact]
     public void GetArea_ValidShapes_ShouldReturnAreaCorrectly()
     {
         const float expected = 12f;
 
         var actual = GeometricCalculator.GetArea(_shapes);
-        
-        Assert.Equal(expected,actual);
+
+        Assert.Equal(expected, actual);
     }
-    
+
     [Fact]
     public void GetArea_OneOrMoreShapeWithTooHighResult_ShouldReturnZero()
     {
-        var badShapes = new ITwoDimensionalShape[] {new Square {Side = float.MaxValue}, new Circle(radius: 1)};
-        const float expected =0f;
+        var badShapes = new ITwoDimensionalShape[] {new Square {Side = float.MaxValue}, new Circle(1)};
+        const float expected = 0f;
 
         var actual = GeometricCalculator.GetArea(badShapes);
-        
-        Assert.Equal(expected,actual);
+
+        Assert.Equal(expected, actual);
     }
-    
+
     [Fact]
     public void GetArea_OneOrMoreInvalidShapes_ShouldReturnNegativeOne()
     {
-        var badShapes = new ITwoDimensionalShape[] {new Square {Side = -1}, new Circle(radius: 1)};
+        var badShapes = new ITwoDimensionalShape[] {new Square {Side = -1}, new Circle(1)};
         const float expected = -1f;
 
         var actual = GeometricCalculator.GetArea(badShapes);
-        
-        Assert.Equal(expected,actual);
+
+        Assert.Equal(expected, actual);
     }
-    
+
     [Fact]
     public void GetArea_OneOrMoreNullReferenceInCollection_ShouldReturnNegativeTwo()
     {
@@ -109,21 +110,21 @@ public class GeometricCalculatorTests
         const float expected = -2f;
 
         var actual = GeometricCalculator.GetArea(_shapes);
-        
-        Assert.Equal(expected,actual);
+
+        Assert.Equal(expected, actual);
     }
-    
+
     [Fact]
     public void GetArea_EmptyCollection_ShouldReturnNegativeTwo()
     {
-        var badShapes = new List<ITwoDimensionalShape>(); 
+        var badShapes = new List<ITwoDimensionalShape>();
         const float expected = -2f;
 
         var actual = GeometricCalculator.GetArea(badShapes);
-        
-        Assert.Equal(expected,actual);
+
+        Assert.Equal(expected, actual);
     }
-    
+
     [Fact]
     public void GetPerimeter_ValidShapes_ShouldReturnAreaCorrectly()
     {
@@ -137,7 +138,7 @@ public class GeometricCalculatorTests
     [Fact]
     public void GetPerimeter_OneOrMoreShapeWithTooHighResult_ShouldReturnZero()
     {
-        var badShapes = new ITwoDimensionalShape[] { new Square { Side = float.MaxValue }, new Circle(radius: 1)};
+        var badShapes = new ITwoDimensionalShape[] {new Square {Side = float.MaxValue}, new Circle(1)};
         const float expected = 0f;
 
         var actual = GeometricCalculator.GetPerimeter(badShapes);
@@ -148,7 +149,7 @@ public class GeometricCalculatorTests
     [Fact]
     public void GetPerimeter_OneOrMoreInvalidShapes_ShouldReturnNegativeOne()
     {
-        var badShapes = new ITwoDimensionalShape[] { new Square { Side = -1 }, new Circle(radius: 1)};
+        var badShapes = new ITwoDimensionalShape[] {new Square {Side = -1}, new Circle(1)};
         const float expected = -1f;
 
         var actual = GeometricCalculator.GetPerimeter(badShapes);
