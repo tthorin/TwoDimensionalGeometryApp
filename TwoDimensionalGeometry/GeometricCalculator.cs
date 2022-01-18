@@ -9,20 +9,22 @@ namespace TwoDimensionalGeometry;
 
 public static class GeometricCalculator
 {
-    public static float GetArea(ITwoDimensionalShape shape) => shape.GetArea();
+    public static float GetArea(ITwoDimensionalShape shape) => shape != null ? shape.GetArea() : -2;
 
-    public static float GetPerimeter(ITwoDimensionalShape shape) => shape.GetPerimeter();
+    public static float GetPerimeter(ITwoDimensionalShape shape) => shape != null ? shape.GetPerimeter() : -2;
 
     public static float GetPerimeter(ICollection<ITwoDimensionalShape> shapes)
     {
-        if (shapes.Count == 0) return -1;
+        if (shapes.Count == 0 || shapes.Contains(null) || shapes == null) return -2;
         var output = 0f;
         foreach (var shape in shapes)
         {
-            if (shape.GetPerimeter() == -1) return -1;
+            var result = shape.GetPerimeter();
+            if (result <= 0) return result <= -1 ? -1 : 0;
+
             output += shape.GetPerimeter();
         }
-        
+
         return output;
     }
 }

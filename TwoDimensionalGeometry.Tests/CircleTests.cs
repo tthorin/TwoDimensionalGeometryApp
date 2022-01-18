@@ -3,7 +3,6 @@
 //  Published under GNU General Public License v3 (GPL-3)
 // -----------------------------------------------------------------------------------------------
 
-using System;
 using Xunit;
 
 namespace TwoDimensionalGeometry.Tests;
@@ -14,7 +13,7 @@ public class CircleTests
 
     public CircleTests()
     {
-        _sut = new Circle() {Radius = 1};
+        _sut = new Circle {Radius = 1};
     }
 
     [Fact]
@@ -37,6 +36,16 @@ public class CircleTests
 
         Assert.Equal(expected, actual, 2);
     }
+    [Fact]
+    public void GetArea_TooHighResult_ShouldReturnZero()
+    {
+        _sut.Radius = float.MaxValue;
+        const float expected = 0;
+
+        var actual = _sut.GetArea();
+
+        Assert.Equal(expected, actual, 2);
+    }
 
     [Fact]
     public void GetPerimeter_ValidRadius_ShouldCalculateCorrectly()
@@ -51,8 +60,18 @@ public class CircleTests
     [Fact]
     public void GetPerimeter_InvalidRadius_ShouldReturnNegativeOne()
     {
-        _sut.Radius = -1;
+        _sut.Radius = 0;
         const float expected = -1;
+
+        var actual = _sut.GetPerimeter();
+
+        Assert.Equal(expected, actual, 2);
+    }
+    [Fact]
+    public void GetPerimeter_TooHighResult_ShouldReturnZero()
+    {
+        _sut.Radius = float.MaxValue;
+        const float expected = 0;
 
         var actual = _sut.GetPerimeter();
 

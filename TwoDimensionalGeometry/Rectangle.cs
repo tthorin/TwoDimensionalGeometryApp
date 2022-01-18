@@ -4,6 +4,7 @@
 // -----------------------------------------------------------------------------------------------
 
 using TwoDimensionalGeometry.Interfaces;
+using static TwoDimensionalGeometry.Helpers.FloatHelper;
 
 namespace TwoDimensionalGeometry;
 
@@ -11,7 +12,7 @@ public class Rectangle : ITwoDimensionalShape
 {
     public float Height { get; set; }
     public float Width { get; set; }
-    public float GetArea() => Height < 0 || Width < 0 ? -1 : Height * Width;
+    public float GetArea() => Height <= 0 || Width <= 0 ? -1 : MaxValueCheck(Height * Width);
 
-    public float GetPerimeter() => Height < 0 || Width < 0 ? -1 : Height * 2 + Width * 2;
+    public float GetPerimeter() => Height <= 0 || Width <= 0 ? -1 : MaxValueCheck(Height * 2 + Width * 2);
 }

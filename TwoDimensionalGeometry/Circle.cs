@@ -4,6 +4,7 @@
 // -----------------------------------------------------------------------------------------------
 
 using TwoDimensionalGeometry.Interfaces;
+using static TwoDimensionalGeometry.Helpers.FloatHelper;
 
 namespace TwoDimensionalGeometry;
 
@@ -17,7 +18,15 @@ public class Circle : ITwoDimensionalShape
         set => Radius = value / 2;
     }
 
-    public float GetArea() => Radius <= 0 ? -1 : (float) (Math.PI * Math.Pow(Radius, 2));
+    public float GetArea()
+    {
+        var area =  Radius <= 0 ? -1 : (float) (Math.PI * Math.Pow(Radius, 2));
+        return MaxValueCheck(area);
+    }
 
-    public float GetPerimeter() => Radius <= 0 ? -1 : (float) (2 * Math.PI * Radius);
+    public float GetPerimeter()
+    {
+        var perimeter =Radius <= 0 ? -1 : (float) (2 * Math.PI * Radius);
+        return MaxValueCheck(perimeter);
+    }
 }

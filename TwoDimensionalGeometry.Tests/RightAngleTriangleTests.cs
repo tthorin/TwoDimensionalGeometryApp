@@ -13,7 +13,7 @@ public class RightAngleTriangleTests
 
     public RightAngleTriangleTests()
     {
-        _sut = new RightAngleTriangle() {Height = 3, Width = 4};
+        _sut = new RightAngleTriangle {Height = 3, Width = 4};
     }
     
     [Fact]
@@ -25,7 +25,16 @@ public class RightAngleTriangleTests
         
         Assert.Equal(expected,actual);
     }
-    
+    [Fact]
+    public void GetArea_TooHighResult_ShouldReturnZero()
+    {
+        const float expected = 0;
+        _sut.Height = float.MaxValue;
+
+        var actual = _sut.GetArea();
+        
+        Assert.Equal(expected,actual);
+    }
     [Theory]
     [InlineData(3,-1,-1)]
     [InlineData(-1,4,-1)]
@@ -42,6 +51,16 @@ public class RightAngleTriangleTests
     public void GetPerimeter_ValidValues_ShouldCalculateCorrectly()
     {
         const float expected = 12; //height 3, width 4 gives hyp 5, 3+4+5=12
+
+        var actual = _sut.GetPerimeter();
+        
+        Assert.Equal(expected,actual);
+    }
+    [Fact]
+    public void GetPerimeter_TooHighResult_ShouldReturnZero()
+    {
+        _sut.Height = float.MaxValue;
+        const float expected = 0;
 
         var actual = _sut.GetPerimeter();
         

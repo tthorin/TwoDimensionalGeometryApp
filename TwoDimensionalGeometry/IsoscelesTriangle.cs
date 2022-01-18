@@ -4,23 +4,22 @@
 // -----------------------------------------------------------------------------------------------
 
 using TwoDimensionalGeometry.Interfaces;
+using static TwoDimensionalGeometry.Helpers.FloatHelper;
 
 namespace TwoDimensionalGeometry;
 
-public class IsoscelesTriangle:ITwoDimensionalShape
+public class IsoscelesTriangle : ITwoDimensionalShape
 {
     public float Legs { get; set; }
     public float Base { get; set; }
-    
+
     public float GetArea()
     {
-        if (Legs <= 0 || Base >= Legs * 2||Base<=0) return -1;
-        else
-        {
-            var height = (float) (Math.Sqrt(Math.Pow(Legs, 2) - Math.Pow(Base, 2) / 4));
-            return (Base * height) / 2;
-        }
+        if (Legs <= 0 || Base >= Legs * 2 || Base <= 0) return -1;
+
+        var height = (float) Math.Sqrt(Math.Pow(Legs, 2) - Math.Pow(Base, 2) / 4);
+        return MaxValueCheck(Base * height / 2);
     }
 
-    public float GetPerimeter() => Base >= Legs * 2 || Legs <= 0 || Base <= 0 ? -1 : Base + Legs * 2;
+    public float GetPerimeter() => Base >= Legs * 2 || Legs <= 0 || Base <= 0 ? -1 : MaxValueCheck(Base + Legs * 2);
 }

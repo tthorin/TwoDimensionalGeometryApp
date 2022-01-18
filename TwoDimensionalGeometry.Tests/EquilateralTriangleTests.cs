@@ -9,27 +9,39 @@ namespace TwoDimensionalGeometry.Tests;
 
 public class EquilateralTriangleTests
 {
-    private EquilateralTriangle _sut;
+    private readonly EquilateralTriangle _sut;
 
     public EquilateralTriangleTests()
     {
-        _sut = new EquilateralTriangle(){Side = 1};
+        _sut = new EquilateralTriangle{Side = 1};
     }
 
     [Fact]
     public void GetArea_ValidValue_ShouldCalculateCorrectly()
     {
-        var expected = 0.433;
+        const float expected = 0.433f;
 
         var actual = _sut.GetArea();
         
         Assert.Equal(expected,actual,3);
     }
+    
     [Fact]
     public void GetArea_InvalidValue_ShouldReturnNegativeOne()
     {
         _sut.Side = -1;
-        var expected = -1;
+        const float expected = -1f;
+
+        var actual = _sut.GetArea();
+        
+        Assert.Equal(expected,actual,3);
+    }
+    
+    [Fact]
+    public void GetArea_TooHighResult_ShouldReturnZero()
+    {
+        _sut.Side = float.MaxValue;
+        const float expected = 0f;
 
         var actual = _sut.GetArea();
         
@@ -39,7 +51,7 @@ public class EquilateralTriangleTests
     [Fact]
     public void GetPerimeter_ValidValue_ShouldCalculateCorrectly()
     {
-        var expected = 3f;
+        const float expected = 3f;
 
         var actual = _sut.GetPerimeter();
         
@@ -50,7 +62,18 @@ public class EquilateralTriangleTests
     public void GetPerimeter_InvalidValue_ShouldReturnNegativeOne()
     {
         _sut.Side = -1;
-        var expected = -1;
+        const float expected = -1f;
+
+        var actual = _sut.GetArea();
+        
+        Assert.Equal(expected,actual,3);
+    }
+    
+    [Fact]
+    public void GetPerimeter_TooHighResult_ShouldReturnZero()
+    {
+        _sut.Side = float.MaxValue;
+        const float expected = 0f;
 
         var actual = _sut.GetArea();
         
