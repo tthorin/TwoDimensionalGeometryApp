@@ -11,11 +11,8 @@ public class RectangleTests
 {
     private readonly Rectangle _sut;
     
-    public RectangleTests()
-    {
-        _sut = new Rectangle {Height = 2,Width = 3};
-    }
-    
+    public RectangleTests() => _sut = new Rectangle {Height = 2,Width = 3};
+
     [Fact]
     public void GetArea_ValidSideValue_ShouldCalculateCorrectly()
     {

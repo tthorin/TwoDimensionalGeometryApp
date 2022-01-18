@@ -23,10 +23,21 @@ public class EquilateralTriangle : ITwoDimensionalShape
     public float Side { get; set; }
 
     /// <summary>
+    /// Initializes a new instance of the <see cref="EquilateralTriangle"/> class.
+    /// </summary>
+    public EquilateralTriangle() { }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="EquilateralTriangle"/> class.
+    /// </summary>
+    /// <param name="side">The length of the triangles sides.</param>
+    public EquilateralTriangle(float side) => Side = side;
+
+    /// <summary>
     /// Gets the area.
     /// </summary>
     /// <returns>The calculated area, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>
-    public float GetArea() => Side <= 0 ? -1 : MaxValueCheck((float) (Math.Sqrt(3) / 4 * Math.Pow(Side, 2)));
+    public float GetArea() => Side <= 0 ? -1 : MaxValueCheck((float)(Math.Sqrt(3) / 4 * Math.Pow(Side, 2)));
 
     /// <summary>
     /// Gets the perimeter.

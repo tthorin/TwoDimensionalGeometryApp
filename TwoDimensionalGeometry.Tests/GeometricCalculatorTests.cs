@@ -81,7 +81,7 @@ public class GeometricCalculatorTests
     [Fact]
     public void GetArea_OneOrMoreShapeWithTooHighResult_ShouldReturnZero()
     {
-        var badShapes = new ITwoDimensionalShape[] {new Square {Side = float.MaxValue},new Circle{Radius = 1}};
+        var badShapes = new ITwoDimensionalShape[] {new Square {Side = float.MaxValue}, new Circle(radius: 1)};
         const float expected =0f;
 
         var actual = GeometricCalculator.GetArea(badShapes);
@@ -92,7 +92,7 @@ public class GeometricCalculatorTests
     [Fact]
     public void GetArea_OneOrMoreInvalidShapes_ShouldReturnNegativeOne()
     {
-        var badShapes = new ITwoDimensionalShape[] {new Square {Side = -1},new Circle{Radius = 1}};
+        var badShapes = new ITwoDimensionalShape[] {new Square {Side = -1}, new Circle(radius: 1)};
         const float expected = -1f;
 
         var actual = GeometricCalculator.GetArea(badShapes);
@@ -135,7 +135,7 @@ public class GeometricCalculatorTests
     [Fact]
     public void GetPerimeter_OneOrMoreShapeWithTooHighResult_ShouldReturnZero()
     {
-        var badShapes = new ITwoDimensionalShape[] { new Square { Side = float.MaxValue }, new Circle { Radius = 1 } };
+        var badShapes = new ITwoDimensionalShape[] { new Square { Side = float.MaxValue }, new Circle(radius: 1)};
         const float expected = 0f;
 
         var actual = GeometricCalculator.GetPerimeter(badShapes);
@@ -146,7 +146,7 @@ public class GeometricCalculatorTests
     [Fact]
     public void GetPerimeter_OneOrMoreInvalidShapes_ShouldReturnNegativeOne()
     {
-        var badShapes = new ITwoDimensionalShape[] { new Square { Side = -1 }, new Circle { Radius = 1 } };
+        var badShapes = new ITwoDimensionalShape[] { new Square { Side = -1 }, new Circle(radius: 1)};
         const float expected = -1f;
 
         var actual = GeometricCalculator.GetPerimeter(badShapes);

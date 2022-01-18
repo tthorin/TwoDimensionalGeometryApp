@@ -31,6 +31,22 @@ public class Rectangle : ITwoDimensionalShape
     public float Width { get; set; }
 
     /// <summary>
+    /// Initializes a new instance of the <see cref="Rectangle"/> class.
+    /// </summary>
+    public Rectangle() { }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Rectangle"/> class.
+    /// </summary>
+    /// <param name="height">The height of the rectangle.</param>
+    /// <param name="width">The width of the rectangle.</param>
+    public Rectangle(float height, float width)
+    {
+        Height = height;
+        Width = width;
+    }
+
+    /// <summary>
     /// Gets the area.
     /// </summary>
     /// <returns>The calculated area, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>

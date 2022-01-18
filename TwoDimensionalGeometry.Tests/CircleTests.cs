@@ -11,10 +11,7 @@ public class CircleTests
 {
     private readonly Circle _sut;
 
-    public CircleTests()
-    {
-        _sut = new Circle {Radius = 1};
-    }
+    public CircleTests() => _sut = new Circle(1);
 
     [Fact]
     public void GetArea_ValidRadius_ShouldCalculateCorrectly()
@@ -28,7 +25,7 @@ public class CircleTests
 
     [Fact]
     public void GetArea_InvalidRadius_ShouldReturnNegativeOne()
-    {
+    {   
         _sut.Radius = -5;
         const float expected = -1;
 

@@ -11,10 +11,7 @@ public class IsoscelesTriangleTests
 {
     private readonly IsoscelesTriangle _sut;
 
-    public IsoscelesTriangleTests()
-    {
-        _sut = new IsoscelesTriangle {Base = 6,Legs = 5};
-    }
+    public IsoscelesTriangleTests() => _sut = new IsoscelesTriangle {Base = 6,Legs = 5};
 
     [Fact]
     public void GetArea_ValidValues_ShouldCalculateCorrectly()

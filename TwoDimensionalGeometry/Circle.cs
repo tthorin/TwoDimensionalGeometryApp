@@ -33,6 +33,22 @@ public class Circle : ITwoDimensionalShape
         get => Radius * 2;
         set => Radius = value / 2;
     }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Circle"/> class.
+    /// </summary>
+    public Circle()
+    {
+        
+    }
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Circle"/> class.
+    /// </summary>
+    /// <param name="radius">The length of the circles radius.</param>
+    public Circle(float radius)
+    {
+        Radius=radius;
+    }
     /// <summary>
     /// Gets the area of the circle.
     /// </summary>

@@ -30,6 +30,22 @@ public class IsoscelesTriangle : ITwoDimensionalShape
     public float Base { get; set; }
 
     /// <summary>
+    /// Initializes a new instance of the <see cref="IsoscelesTriangle"/> class.
+    /// </summary>
+    public IsoscelesTriangle(){}
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="IsoscelesTriangle"/> class.
+    /// </summary>
+    /// <param name="tbase">The length of the triangles base.</param>
+    /// <param name="legs">The length of the triangles legs.</param>
+    public IsoscelesTriangle(float tbase,float legs)
+    {
+        Base=tbase;
+        Legs=legs;
+    }
+
+    /// <summary>
     /// Gets the area.
     /// </summary>
     /// <returns>The calculated area, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>

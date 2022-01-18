@@ -31,6 +31,22 @@ public class RightAngleTriangle : ITwoDimensionalShape
     public float Width { get; set; }
 
     /// <summary>
+    /// Initializes a new instance of the <see cref="RightAngleTriangle"/> class.
+    /// </summary>
+    public RightAngleTriangle() { }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="RightAngleTriangle"/> class.
+    /// </summary>
+    /// <param name="height">The height of the triangle.</param>
+    /// <param name="width">The width of the triangle.</param>
+    public RightAngleTriangle(float height, float width)
+    {
+        Height = height;
+        Width = width;
+    }
+
+    /// <summary>
     /// Gets the area.
     /// </summary>
     /// <returns>The calculated area, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>
@@ -44,7 +60,7 @@ public class RightAngleTriangle : ITwoDimensionalShape
     {
         if (Height <= 0 || Width <= 0) return -1;
 
-        var hypotenuse = (float) Math.Sqrt(Math.Pow(Height, 2) + Math.Pow(Width, 2));
+        var hypotenuse = (float)Math.Sqrt(Math.Pow(Height, 2) + Math.Pow(Width, 2));
         return MaxValueCheck(hypotenuse + Height + Width);
     }
 }

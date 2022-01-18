@@ -11,11 +11,8 @@ public class RightAngleTriangleTests
 {
     private readonly RightAngleTriangle _sut;
 
-    public RightAngleTriangleTests()
-    {
-        _sut = new RightAngleTriangle {Height = 3, Width = 4};
-    }
-    
+    public RightAngleTriangleTests() => _sut = new RightAngleTriangle {Height = 3, Width = 4};
+
     [Fact]
     public void GetArea_ValidValues_ShouldCalculateCorrectly()
     {

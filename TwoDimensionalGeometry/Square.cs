@@ -18,6 +18,17 @@ public class Square : ITwoDimensionalShape
     public float Side { get; set; }
 
     /// <summary>
+    /// Initializes a new instance of the <see cref="Square"/> class.
+    /// </summary>
+    public Square() { }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Square"/> class.
+    /// </summary>
+    /// <param name="side">The length of the squares sides.</param>
+    public Square(float side) => Side = side;
+
+    /// <summary>
     /// Gets the area.
     /// </summary>
     /// <returns>The calculated area, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>
