@@ -3,8 +3,8 @@
 //  Published under GNU General Public License v3 (GPL-3)
 // -----------------------------------------------------------------------------------------------
 
+using TwoDimensionalGeometry.Extensions;
 using TwoDimensionalGeometry.Interfaces;
-using static TwoDimensionalGeometry.Helpers.FloatHelper;
 
 namespace TwoDimensionalGeometry;
 
@@ -25,23 +25,18 @@ public class EquilateralTriangle : ITwoDimensionalShape
     /// <summary>
     /// Initializes a new instance of the <see cref="EquilateralTriangle"/> class.
     /// </summary>
-    public EquilateralTriangle() { }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="EquilateralTriangle"/> class.
-    /// </summary>
     /// <param name="side">The length of the triangles sides.</param>
-    public EquilateralTriangle(float side) => Side = side;
+    public EquilateralTriangle(float side = 0) => Side = side;
 
     /// <summary>
     /// Gets the area.
     /// </summary>
     /// <returns>The calculated area, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>
-    public float GetArea() => Side <= 0 ? -1 : MaxValueCheck((float)(Math.Sqrt(3) / 4 * Math.Pow(Side, 2)));
+    public float GetArea() => Side <= 0 ? -1 : ((float)(Math.Sqrt(3) / 4 * Math.Pow(Side, 2))).MaxValueCheck();
 
     /// <summary>
     /// Gets the perimeter.
     /// </summary>
     /// <returns>The calculated perimeter, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>
-    public float GetPerimeter() => Side <= 0 ? -1 : MaxValueCheck(Side * 3);
+    public float GetPerimeter() => Side <= 0 ? -1 : (Side * 3).MaxValueCheck();
 }

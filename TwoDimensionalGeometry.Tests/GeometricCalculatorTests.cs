@@ -2,6 +2,8 @@
 //  GeometricCalculatorTests.cs by Thomas Thorin, Copyright (C) 2022.
 //  Published under GNU General Public License v3 (GPL-3)
 // -----------------------------------------------------------------------------------------------
+#pragma warning disable CS8600
+#pragma warning disable CS8604
 
 using System;
 using System.Collections.Generic;

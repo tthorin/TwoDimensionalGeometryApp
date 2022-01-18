@@ -3,9 +3,9 @@
 //  Published under GNU General Public License v3 (GPL-3)
 // -----------------------------------------------------------------------------------------------
 
-namespace TwoDimensionalGeometry.Helpers;
+namespace TwoDimensionalGeometry.Extensions;
 
-internal static class FloatHelper
+internal static class FloatExtensions
 {
-    internal static float MaxValueCheck(float number) => number >= float.MaxValue ? 0 : number;
+    internal static float MaxValueCheck(this float number) => number >= float.MaxValue ? 0 : number;
 }

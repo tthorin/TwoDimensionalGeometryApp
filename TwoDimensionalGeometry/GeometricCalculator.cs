@@ -2,7 +2,7 @@
 //  GeometricCalculator.cs by Thomas Thorin, Copyright (C) 2022.
 //  Published under GNU General Public License v3 (GPL-3)
 // -----------------------------------------------------------------------------------------------
-
+#pragma warning disable CS8625
 using TwoDimensionalGeometry.Interfaces;
 
 namespace TwoDimensionalGeometry;
@@ -26,7 +26,7 @@ public static class GeometricCalculator
     /// <returns>The sum of the calculated areas, or 0 if result of calculation is too high, -1 if a dimension is negative or -2 if the collection or a shape is null.</returns>
     public static float GetArea(ICollection<ITwoDimensionalShape> shapes)
     {
-        if (shapes.Count == 0 || shapes.Contains(null) || shapes == null) return -2;
+        if (shapes.Count == 0 || shapes.Contains(null) || shapes is null) return -2;
         var output = 0f;
         foreach (var shape in shapes)
         {

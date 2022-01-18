@@ -4,7 +4,7 @@
 // -----------------------------------------------------------------------------------------------
 
 using TwoDimensionalGeometry.Interfaces;
-using static TwoDimensionalGeometry.Helpers.FloatHelper;
+using static TwoDimensionalGeometry.Extensions.FloatExtensions;
 
 namespace TwoDimensionalGeometry;
 
@@ -37,18 +37,9 @@ public class Circle : ITwoDimensionalShape
     /// <summary>
     /// Initializes a new instance of the <see cref="Circle"/> class.
     /// </summary>
-    public Circle()
-    {
-        
-    }
-    /// <summary>
-    /// Initializes a new instance of the <see cref="Circle"/> class.
-    /// </summary>
     /// <param name="radius">The length of the circles radius.</param>
-    public Circle(float radius)
-    {
-        Radius=radius;
-    }
+    public Circle(float radius = 0) => Radius = radius;
+
     /// <summary>
     /// Gets the area of the circle.
     /// </summary>
@@ -56,7 +47,8 @@ public class Circle : ITwoDimensionalShape
     public float GetArea()
     {
         var area = Radius <= 0 ? -1 : (float)(Math.PI * Math.Pow(Radius, 2));
-        return MaxValueCheck(area);
+
+        return area.MaxValueCheck();
     }
 
     /// <summary>
@@ -66,6 +58,6 @@ public class Circle : ITwoDimensionalShape
     public float GetPerimeter()
     {
         var perimeter = Radius <= 0 ? -1 : (float)(2 * Math.PI * Radius);
-        return MaxValueCheck(perimeter);
+        return (perimeter).MaxValueCheck();
     }
 }

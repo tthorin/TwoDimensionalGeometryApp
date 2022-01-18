@@ -3,8 +3,8 @@
 //  Published under GNU General Public License v3 (GPL-3)
 // -----------------------------------------------------------------------------------------------
 
+using TwoDimensionalGeometry.Extensions;
 using TwoDimensionalGeometry.Interfaces;
-using static TwoDimensionalGeometry.Helpers.FloatHelper;
 
 namespace TwoDimensionalGeometry;
 
@@ -28,21 +28,16 @@ public class IsoscelesTriangle : ITwoDimensionalShape
     /// The length of the triangles base.
     /// </value>
     public float Base { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="IsoscelesTriangle"/> class.
-    /// </summary>
-    public IsoscelesTriangle(){}
-
+    
     /// <summary>
     /// Initializes a new instance of the <see cref="IsoscelesTriangle"/> class.
     /// </summary>
     /// <param name="tbase">The length of the triangles base.</param>
     /// <param name="legs">The length of the triangles legs.</param>
-    public IsoscelesTriangle(float tbase,float legs)
+    public IsoscelesTriangle(float tbase = 0, float legs = 0)
     {
-        Base=tbase;
-        Legs=legs;
+        Base = tbase;
+        Legs = legs;
     }
 
     /// <summary>
@@ -53,13 +48,13 @@ public class IsoscelesTriangle : ITwoDimensionalShape
     {
         if (Legs <= 0 || Base >= Legs * 2 || Base <= 0) return -1;
 
-        var height = (float) Math.Sqrt(Math.Pow(Legs, 2) - Math.Pow(Base, 2) / 4);
-        return MaxValueCheck(Base * height / 2);
+        var height = (float)Math.Sqrt(Math.Pow(Legs, 2) - Math.Pow(Base, 2) / 4);
+        return (Base * height / 2).MaxValueCheck();
     }
 
     /// <summary>
     /// Gets the perimeter.
     /// </summary>
     /// <returns>The calculated perimeter, or 0 if result of calculation is too high, or -1 if a dimension is negative/invalid(base same or longer than twice the length of the legs).</returns>
-    public float GetPerimeter() => Base >= Legs * 2 || Legs <= 0 || Base <= 0 ? -1 : MaxValueCheck(Base + Legs * 2);
+    public float GetPerimeter() => Base >= Legs * 2 || Legs <= 0 || Base <= 0 ? -1 : (Base + Legs * 2).MaxValueCheck();
 }

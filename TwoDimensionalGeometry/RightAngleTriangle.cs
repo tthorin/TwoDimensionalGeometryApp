@@ -3,8 +3,8 @@
 //  Published under GNU General Public License v3 (GPL-3)
 // -----------------------------------------------------------------------------------------------
 
-using static TwoDimensionalGeometry.Helpers.FloatHelper;
 using TwoDimensionalGeometry.Interfaces;
+using TwoDimensionalGeometry.Extensions;
 
 namespace TwoDimensionalGeometry;
 
@@ -29,18 +29,13 @@ public class RightAngleTriangle : ITwoDimensionalShape
     /// The width.
     /// </value>
     public float Width { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="RightAngleTriangle"/> class.
-    /// </summary>
-    public RightAngleTriangle() { }
-
+    
     /// <summary>
     /// Initializes a new instance of the <see cref="RightAngleTriangle"/> class.
     /// </summary>
     /// <param name="height">The height of the triangle.</param>
     /// <param name="width">The width of the triangle.</param>
-    public RightAngleTriangle(float height, float width)
+    public RightAngleTriangle(float height = 0, float width = 0)
     {
         Height = height;
         Width = width;
@@ -50,7 +45,7 @@ public class RightAngleTriangle : ITwoDimensionalShape
     /// Gets the area.
     /// </summary>
     /// <returns>The calculated area, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>
-    public float GetArea() => Height <= 0 || Width <= 0 ? -1 : MaxValueCheck(Height * Width / 2);
+    public float GetArea() => Height <= 0 || Width <= 0 ? -1 : (Height * Width / 2).MaxValueCheck();
 
     /// <summary>
     /// Gets the perimeter.
@@ -61,6 +56,6 @@ public class RightAngleTriangle : ITwoDimensionalShape
         if (Height <= 0 || Width <= 0) return -1;
 
         var hypotenuse = (float)Math.Sqrt(Math.Pow(Height, 2) + Math.Pow(Width, 2));
-        return MaxValueCheck(hypotenuse + Height + Width);
+        return (hypotenuse + Height + Width).MaxValueCheck();
     }
 }
