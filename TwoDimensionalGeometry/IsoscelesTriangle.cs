@@ -61,8 +61,5 @@ public class IsoscelesTriangle : ITwoDimensionalShape
     ///     The calculated perimeter, or 0 if result of calculation is too high, or -1 if a dimension is
     ///     negative/invalid(base same or longer than twice the length of the legs).
     /// </returns>
-    public float GetPerimeter()
-    {
-        return Base >= Legs * 2 || Legs <= 0 || Base <= 0 ? -1 : (Base + Legs * 2).MaxValueCheck();
-    }
+    public float GetPerimeter() => Base >= Legs * 2 || Legs <= 0 || Base <= 0 ? -1 : (Base + Legs * 2).MaxValueCheck();
 }

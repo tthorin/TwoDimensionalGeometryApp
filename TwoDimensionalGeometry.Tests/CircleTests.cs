@@ -9,11 +9,10 @@ namespace TwoDimensionalGeometry.Tests;
 
 public class CircleTests
 {
-    private readonly Circle _sut;
+    private readonly Circle _sut = new(1);
 
     public CircleTests()
     {
-        _sut = new Circle(1);
     }
 
     [Fact]

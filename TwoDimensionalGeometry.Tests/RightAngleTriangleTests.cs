@@ -9,11 +9,10 @@ namespace TwoDimensionalGeometry.Tests;
 
 public class RightAngleTriangleTests
 {
-    private readonly RightAngleTriangle _sut;
+    private readonly RightAngleTriangle _sut = new (3,4);
 
     public RightAngleTriangleTests()
     {
-        _sut = new RightAngleTriangle {Height = 3, Width = 4};
     }
 
     [Fact]

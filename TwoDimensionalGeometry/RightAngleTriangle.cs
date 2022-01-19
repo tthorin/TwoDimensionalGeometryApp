@@ -45,10 +45,7 @@ public class RightAngleTriangle : ITwoDimensionalShape
     ///     Gets the area.
     /// </summary>
     /// <returns>The calculated area, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>
-    public float GetArea()
-    {
-        return Height <= 0 || Width <= 0 ? -1 : (Height * Width / 2).MaxValueCheck();
-    }
+    public float GetArea() => Height <= 0 || Width <= 0 ? -1 : (Height * Width / 2).MaxValueCheck();
 
     /// <summary>
     ///     Gets the perimeter.

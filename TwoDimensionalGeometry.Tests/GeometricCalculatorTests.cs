@@ -3,9 +3,6 @@
 //  Published under GNU General Public License v3 (GPL-3)
 // -----------------------------------------------------------------------------------------------
 
-#pragma warning disable CS8600
-#pragma warning disable CS8604
-
 using System;
 using System.Collections.Generic;
 using TwoDimensionalGeometry.Interfaces;
@@ -39,6 +36,7 @@ public class GeometricCalculatorTests
         Assert.Equal(expected, actual);
     }
 
+#pragma warning disable CS8600
     [Fact]
     public void GetArea_NullReference_ShouldReturnNegativeTwo()
     {
@@ -49,6 +47,7 @@ public class GeometricCalculatorTests
 
         Assert.Equal(expected, actual);
     }
+#pragma warning restore CS8600
 
     [Fact]
     public void GetPerimeter_ValidShape_ShouldReturnAreaCorrectly()
@@ -60,6 +59,7 @@ public class GeometricCalculatorTests
         Assert.Equal(expected, actual);
     }
 
+#pragma warning disable CS8600
     [Fact]
     public void GetPerimeter_NullReference_ShouldReturnNegativeTwo()
     {
@@ -70,6 +70,7 @@ public class GeometricCalculatorTests
 
         Assert.Equal(expected, actual);
     }
+#pragma warning restore CS8600
 
     [Fact]
     public void GetArea_ValidShapes_ShouldReturnAreaCorrectly()

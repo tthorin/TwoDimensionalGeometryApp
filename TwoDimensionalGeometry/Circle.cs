@@ -14,22 +14,8 @@ namespace TwoDimensionalGeometry;
 /// <seealso cref="TwoDimensionalGeometry.Interfaces.ITwoDimensionalShape" />
 public class Circle : ITwoDimensionalShape
 {
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="Circle" /> class.
-    /// </summary>
-    /// <param name="radius">The length of the circles radius.</param>
-    public Circle(float radius = 0)
-    {
-        Radius = radius;
-    }
 
-    /// <summary>
-    ///     Gets or sets the radius.
-    /// </summary>
-    /// <value>
-    ///     The radius.
-    /// </value>
-    public float Radius { get; set; }
+    #region Public Properties
 
     /// <summary>
     ///     Gets or sets the diameter.
@@ -42,6 +28,28 @@ public class Circle : ITwoDimensionalShape
         get => Radius * 2;
         set => Radius = value / 2;
     }
+
+    /// <summary>
+    ///     Gets or sets the radius.
+    /// </summary>
+    /// <value>
+    ///     The radius.
+    /// </value>
+    public float Radius { get; set; }
+
+    #endregion Public Properties
+
+    #region Public Constructors
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="Circle" /> class.
+    /// </summary>
+    /// <param name="radius">The length of the circles radius.</param>
+    public Circle(float radius = 0) => Radius = radius;
+
+    #endregion Public Constructors
+
+    #region Public Methods
 
     /// <summary>
     ///     Gets the area of the circle.
@@ -63,4 +71,7 @@ public class Circle : ITwoDimensionalShape
         var perimeter = Radius <= 0 ? -1 : (float) (2 * Math.PI * Radius);
         return perimeter.MaxValueCheck();
     }
+
+    #endregion Public Methods
+
 }

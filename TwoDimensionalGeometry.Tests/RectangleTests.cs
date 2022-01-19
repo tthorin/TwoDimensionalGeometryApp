@@ -9,11 +9,10 @@ namespace TwoDimensionalGeometry.Tests;
 
 public class RectangleTests
 {
-    private readonly Rectangle _sut;
+    private readonly Rectangle _sut = new(2,3);
 
     public RectangleTests()
     {
-        _sut = new Rectangle {Height = 2, Width = 3};
     }
 
     [Fact]

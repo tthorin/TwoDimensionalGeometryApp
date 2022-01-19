@@ -9,11 +9,10 @@ namespace TwoDimensionalGeometry.Tests;
 
 public class EquilateralTriangleTests
 {
-    private readonly EquilateralTriangle _sut;
+    private readonly EquilateralTriangle _sut = new(1);
 
     public EquilateralTriangleTests()
     {
-        _sut = new EquilateralTriangle {Side = 1};
     }
 
     [Fact]
@@ -64,7 +63,7 @@ public class EquilateralTriangleTests
         _sut.Side = -1;
         const float expected = -1f;
 
-        var actual = _sut.GetArea();
+        var actual = _sut.GetPerimeter();
 
         Assert.Equal(expected, actual, 3);
     }
@@ -75,7 +74,7 @@ public class EquilateralTriangleTests
         _sut.Side = float.MaxValue;
         const float expected = 0f;
 
-        var actual = _sut.GetArea();
+        var actual = _sut.GetPerimeter();
 
         Assert.Equal(expected, actual, 3);
     }

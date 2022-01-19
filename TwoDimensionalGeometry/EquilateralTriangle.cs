@@ -14,14 +14,7 @@ namespace TwoDimensionalGeometry;
 /// <seealso cref="TwoDimensionalGeometry.Interfaces.ITwoDimensionalShape" />
 public class EquilateralTriangle : ITwoDimensionalShape
 {
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="EquilateralTriangle" /> class.
-    /// </summary>
-    /// <param name="side">The length of the triangles sides.</param>
-    public EquilateralTriangle(float side = 0)
-    {
-        Side = side;
-    }
+    #region Public Properties
 
     /// <summary>
     ///     Gets or sets the length of the sides of the triangle.
@@ -31,21 +24,31 @@ public class EquilateralTriangle : ITwoDimensionalShape
     /// </value>
     public float Side { get; set; }
 
+    #endregion Public Properties
+
+    #region Public Constructors
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="EquilateralTriangle" /> class.
+    /// </summary>
+    /// <param name="side">The length of the triangles sides.</param>
+    public EquilateralTriangle(float side = 0) => Side = side;
+
+    #endregion Public Constructors
+
+    #region Public Methods
+
     /// <summary>
     ///     Gets the area.
     /// </summary>
     /// <returns>The calculated area, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>
-    public float GetArea()
-    {
-        return Side <= 0 ? -1 : ((float) (Math.Sqrt(3) / 4 * Math.Pow(Side, 2))).MaxValueCheck();
-    }
+    public float GetArea() => Side <= 0 ? -1 : ((float) (Math.Sqrt(3) / 4 * Math.Pow(Side, 2))).MaxValueCheck();
 
     /// <summary>
     ///     Gets the perimeter.
     /// </summary>
     /// <returns>The calculated perimeter, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>
-    public float GetPerimeter()
-    {
-        return Side <= 0 ? -1 : (Side * 3).MaxValueCheck();
-    }
+    public float GetPerimeter() => Side <= 0 ? -1 : (Side * 3).MaxValueCheck();
+
+    #endregion Public Methods
 }

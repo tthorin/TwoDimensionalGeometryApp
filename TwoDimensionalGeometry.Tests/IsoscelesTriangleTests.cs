@@ -9,11 +9,10 @@ namespace TwoDimensionalGeometry.Tests;
 
 public class IsoscelesTriangleTests
 {
-    private readonly IsoscelesTriangle _sut;
+    private readonly IsoscelesTriangle _sut = new(6,5);
 
     public IsoscelesTriangleTests()
     {
-        _sut = new IsoscelesTriangle {Base = 6, Legs = 5};
     }
 
     [Fact]

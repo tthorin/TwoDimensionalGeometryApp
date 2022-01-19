@@ -6,10 +6,7 @@ public class SquareTests
 {
     private readonly Square _sut;
 
-    public SquareTests()
-    {
-        _sut = new Square {Side = 2};
-    }
+    public SquareTests() => _sut = new Square {Side = 2};
 
     [Fact]
     public void GetArea_ValidSideValue_ShouldCalculateCorrectly()
