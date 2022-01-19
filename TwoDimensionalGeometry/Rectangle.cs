@@ -45,11 +45,11 @@ public class Rectangle : ITwoDimensionalShape
     ///     Gets the area.
     /// </summary>
     /// <returns>The calculated area, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>
-    public float GetArea() => Height <= 0 || Width <= 0 ? -1 : (Height * Width).MaxValueCheck();
+    public float GetArea() => Height > 0 && Width > 0 ? (Height * Width).MaxValueCheck() : -1;
 
     /// <summary>
     ///     Gets the perimeter.
     /// </summary>
     /// <returns>The calculated perimeter, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>
-    public float GetPerimeter() => Height <= 0 || Width <= 0 ? -1 : (Height * 2 + Width * 2).MaxValueCheck();
+    public float GetPerimeter() => Height > 0 && Width > 0 ? (Height * 2 + Width * 2).MaxValueCheck() : -1;
 }

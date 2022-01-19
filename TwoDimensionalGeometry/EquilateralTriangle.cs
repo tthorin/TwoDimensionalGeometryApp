@@ -42,13 +42,13 @@ public class EquilateralTriangle : ITwoDimensionalShape
     ///     Gets the area.
     /// </summary>
     /// <returns>The calculated area, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>
-    public float GetArea() => Side <= 0 ? -1 : ((float) (Math.Sqrt(3) / 4 * Math.Pow(Side, 2))).MaxValueCheck();
+    public float GetArea() => Side > 0 ? ((float) (Math.Sqrt(3) / 4 * Math.Pow(Side, 2))).MaxValueCheck() : -1;
 
     /// <summary>
     ///     Gets the perimeter.
     /// </summary>
     /// <returns>The calculated perimeter, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>
-    public float GetPerimeter() => Side <= 0 ? -1 : (Side * 3).MaxValueCheck();
+    public float GetPerimeter() => Side > 0 ? (Side * 3).MaxValueCheck() : -1;
 
     #endregion Public Methods
 }
