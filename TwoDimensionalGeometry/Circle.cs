@@ -14,7 +14,6 @@ namespace TwoDimensionalGeometry;
 /// <seealso cref="TwoDimensionalGeometry.Interfaces.ITwoDimensionalShape" />
 public class Circle : ITwoDimensionalShape
 {
-
     #region Public Properties
 
     /// <summary>
@@ -57,8 +56,7 @@ public class Circle : ITwoDimensionalShape
     /// <returns>The calculated area, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>
     public float GetArea()
     {
-        var area = Radius <= 0 ? -1 : (float) (Math.PI * Math.Pow(Radius, 2));
-
+        var area = Radius > 0 ? (float) (Math.PI * Math.Pow(Radius, 2)) : -1;
         return area.MaxValueCheck();
     }
 
@@ -68,7 +66,7 @@ public class Circle : ITwoDimensionalShape
     /// <returns>The calculated perimeter, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>
     public float GetPerimeter()
     {
-        var perimeter = Radius <= 0 ? -1 : (float) (2 * Math.PI * Radius);
+        var perimeter = Radius > 0 ? (float) (2 * Math.PI * Radius) : -1;
         return perimeter.MaxValueCheck();
     }
 

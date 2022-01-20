@@ -37,13 +37,13 @@ public class Square : ITwoDimensionalShape
     ///     Gets the area.
     /// </summary>
     /// <returns>The calculated area, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>
-    public float GetArea() => Side <= 0 ? -1 : (Side * Side).MaxValueCheck();
+    public float GetArea() => Side > 0 ? (Side * Side).MaxValueCheck() : -1;
 
     /// <summary>
     ///     Gets the perimeter.
     /// </summary>
     /// <returns>The calculated perimeter, or 0 if result of calculation is too high, or -1 if a dimension is negative.</returns>
-    public float GetPerimeter() => Side <= 0 ? -1 : (Side * 4).MaxValueCheck();
+    public float GetPerimeter() => Side > 0 ? (Side * 4).MaxValueCheck() : -1;
 
     #endregion Public Methods
 }
