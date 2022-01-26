@@ -45,7 +45,6 @@ public static class GeometricCalculator
 
             output += result;
         }
-
         return output;
     }
 
