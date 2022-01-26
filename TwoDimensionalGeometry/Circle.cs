@@ -14,7 +14,6 @@ namespace TwoDimensionalGeometry;
 /// <seealso cref="TwoDimensionalGeometry.Interfaces.ITwoDimensionalShape" />
 public class Circle : ITwoDimensionalShape
 {
-
     #region Public Properties
 
     /// <summary>
